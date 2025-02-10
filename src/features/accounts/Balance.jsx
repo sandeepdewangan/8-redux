@@ -4,7 +4,7 @@ const Balance = () => {
   const balance = useSelector((store) => store.account.balance);
   return (
     <div>
-      <h3>Rs. {balance}</h3>
+      <h3>Rs. {Number(balance).toFixed(2)}</h3>
     </div>
   );
 };

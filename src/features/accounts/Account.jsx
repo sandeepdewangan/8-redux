@@ -8,14 +8,15 @@ const Account = () => {
   const [withdrawAmount, setWithdrawAmount] = useState(0);
   const [loanAmount, setLoanAmount] = useState(0);
   const [loanPurpose, setLoanPurpose] = useState("");
+  const [currency, setCurrency] = useState("INR");
 
-  const loan = useSelector((store) => store.account.loan);
+  const { loan, isLoading } = useSelector((store) => store.account);
 
   const dispatch = useDispatch();
 
   function onDeposit() {
     if (depositAmount === 0) return;
-    dispatch(deposit(depositAmount));
+    dispatch(deposit(depositAmount, currency));
     setDepositAmount(0);
   }
 
@@ -42,13 +43,15 @@ const Account = () => {
           value={depositAmount}
           onChange={(e) => setDepositAmount(e.target.value)}
         />
-        <select>
+        <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
           <option value="INR">INR</option>
           <option value="USD">US Dollar</option>
           <option value="THB">THB</option>
-          <option value="RUB">Rubles</option>
+          <option value="PHP">Phillipino Pesso</option>
         </select>
-        <button onClick={onDeposit}>Deposit</button>
+        <button onClick={onDeposit} disabled={isLoading}>
+          {isLoading ? "Converting..." : "Deposit"}
+        </button>
       </div>
 
       <div>
