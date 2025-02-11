@@ -12,3 +12,7 @@ Component -> dispatch -> THUNK (Middleware) -> Store
 
 1. Install google chrome Redux DevTools
 2. Install package `npm i redux-devtools-extension`
+
+### Redux Toolkit (Modern way of state management)
+
+Install Package `npm i @reduxjs/toolkit`
