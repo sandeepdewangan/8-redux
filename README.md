@@ -7,3 +7,8 @@ Packages: `npm i redux react-redux`
 `npm i redux-thunk`
 
 Component -> dispatch -> THUNK (Middleware) -> Store
+
+### Redux Dev Tools
+
+1. Install google chrome Redux DevTools
+2. Install package `npm i redux-devtools-extension`
